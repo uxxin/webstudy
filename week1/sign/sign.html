@@ -73,6 +73,12 @@
             padding: 5px 10px; 
             border-radius: 5px;
         }
+
+        .error {
+            color: red;
+            margin-top: 5px;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -81,6 +87,7 @@
         <form action="/" method="post" id="signupForm">
             <label for="name">이름:</label>
             <input type="text" id="name" name="name">
+            <div id="nameError" class="error"></div> <!-- 이름 입력 에러 메시지를 표시할 곳 -->
 
             <label for="email">이메일:</label>
             <input type="email" id="email" name="email">
@@ -122,7 +129,23 @@
 
         // 가입하기 버튼 클릭 시 모달 열기
         document.getElementById("signupForm").addEventListener("submit", function(event) {
-            event.preventDefault(); //회원가입 폼이 제출될 때 새로고침 되는 것을 막아줌.
+            event.preventDefault(); // 회원가입 폼이 제출될 때 새로고침 되는 것을 막아줌.
+
+            // 이름이 입력되었는지 확인
+            var nameInput = document.getElementById("name").value;
+            var nameError = document.getElementById("nameError");
+
+            if (nameInput === "") {
+                nameError.innerHTML = "필수 항목입니다!";
+                return;
+            }
+
+            // 이름이 문자열인지 확인
+            if (!isNaN(nameInput)) {
+                nameError.innerHTML = "문자열로 입력해주세요!";
+                return;
+            }
+
             showModal(); // 모달 열기
         });
     </script>

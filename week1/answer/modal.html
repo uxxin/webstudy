@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>모달 만들기</title>
+  <style>
+    /* 모달 스타일 */
+    .modal {
+      display: flex; /* 모달을 가운데 정렬하기 위해 flexbox를 사용 */
+      justify-content: center; /* 수평 가운데 정렬 */
+      align-items: center; /* 수직 가운데 정렬 */
+      display: none; /* 초기에는 모달을 숨김 */
+      position: fixed; /* 페이지 스크롤에 따라 모달이 따라다니도록 고정 */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* 어둡게 투명한 배경 생성 */
+      z-index: 1; /* 다른 요소 위에 띄우기 위해 z-index 사용 */
+    }
+
+    .modal-content {
+      width: 400px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* 그림자 효과 추가 */
+    }
+
+    .close-button {
+      float: right; /* 버튼을 오른쪽으로 배치 */
+    }
+  </style>
+</head>
+<body>
+  <h1>모달 예제</h1>
+  <button id="showModal">모달 열기</button>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <h1>안녕하세요</h1>
+      <p>모달내용은 어쩌고 저쩌고</p>
+      <button class="close-button" id="closeModal">닫기</button>
+    </div>
+  </div>
+
+  <script>
+    // HTML 요소들을 가져옴
+    const modal = document.getElementById("myModal");
+    const showModalButton = document.getElementById("showModal");
+    const closeModalButton = document.getElementById("closeModal");
+
+    // 모달 열기 버튼에 이벤트 리스너 추가
+    showModalButton.addEventListener("click", () => {
+      modal.style.display = "flex"; // 모달을 보이게 함 (display 속성을 flex로 변경)
+    });
+
+    // 모달 닫기 버튼에 이벤트 리스너 추가
+    closeModalButton.addEventListener("click", () => {
+      modal.style.display = "none"; // 모달을 숨김 (display 속성을 none으로 변경)
+    });
+
+    // 모달 외부를 클릭하면 모달 닫기
+    window.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.style.display = "none"; // 모달을 숨김
+      }
+    });
+  </script>
+</body>
+</html>

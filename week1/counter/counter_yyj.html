@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+     <!-- 숫자 0 표현 -->
+    <h1 id="number">0</h1> 
+    <button id="increase">+1</button>     <!-- 증가 버튼 -->
+    <button id="decrease">-1</button>     <!-- 감소 버튼 -->
+
+    <script>
+        const number = document.getElementById("number") //  요소 받아오기
+        const increase = document.getElementById("increase") //증가 버튼 받아오기
+        const decrease = document.getElementById("decrease") //감소 버튼 받아오기
+
+        //증가 버튼 클릭 시
+        increase.onclick = () => {
+            console.log("increase 버튼이 클릭됨.");
+            const current = parseInt(number.innerText); //현재 숫자 정수로 변환
+            number.innerText = current + 1; //현재 숫자+1
+        };
+        //감소 버튼 클릭 시
+        decrease.onclick = () => {
+            console.log("decrease 버튼이 클릭됨.");
+            const current = parseInt(number.innerText); //현재 숫자 정수로 변환
+            number.innerText = current - 1; //현재 숫자+1
+        };
+        
+    </script>
+</body>
+</html>

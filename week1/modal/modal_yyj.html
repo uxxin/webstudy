@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <style>
+        /* 모달 스타일 */
+        .modal {
+          display: flex; /* 모달 가운데 정렬 위해 flexbox 이용 */
+          justify-content: center; /* 수평 가운데 정렬 */
+          align-items: center; /* 수직 가운데 정렬 */
+          display: none; /* 버튼 클릭 전에는 모달을 숨김 */
+          position: fixed; /* 페이지 스크롤해도 위치 변함 없도록 하는 속성 */
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5); /* 어둡게 투명한 배경 생성 */
+          z-index: 1; /* 모달 창이 다른 요소보다 위에 있도록 */
+        }
+    
+        .modalContent {
+          width: 400px;
+          background-color: white;
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+    
+        .modalcloseButton {
+          float: right; /* 버튼을 오른쪽으로 배치 */
+        }
+      </style>
+</head>
+
+<!-- 주요 콘텐츠 -->
+<body>
+    <h1 id="maintitle">안녕하세요!</h1>
+    <h2 id="contents">내용내용내용</h2>
+    <button id="modalopenButton">버튼 열기</button>
+    <!-- 모달창 -->
+    <div id="modalContainer" class="modal">
+        <div id="modalContent" class="modalContent">
+          <p>모달 내용입니다.</p>
+          <button id="modalcloseButton" class="modalcloseButton">닫기</button>
+        </div>
+    </div>
+    <script src="./modal_yyj.js"></script>
+</body>
+</html>
